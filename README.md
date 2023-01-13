@@ -18,7 +18,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`fxtracker` was created by Sarah Abdelazim, Markus Nam, Crystal Geng, Lennon Au-Yeung. It is licensed under the terms of the MIT license.
+`fxtracker` was created by Sarah Abdelazim, Markus Nam, Crystal Geng and Lennon Au-Yeung. It is licensed under the terms of the MIT license.
 
 ## Credits
 
