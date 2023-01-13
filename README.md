@@ -1,6 +1,6 @@
 # fxtracker
 
-A package that plots priccurrent and historical price graphshs for currency pairs as well as converts currency.
+A package that plots current and historical price graphs for currency pairs as well as converts currency.
 
 ## Installation
 
