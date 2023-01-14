@@ -1,3 +1,6 @@
+# Authors: Sarah Abdelazim, Markus Nam, Crystal Geng, Lennon Au-Yeung
+# Date: Jan 14, 2023
+
 def price_trend_viz(curr, start_date, end_date):
     """
     Visualizes trend of the exchange rate of a currency pair between the selected start date and end date.
