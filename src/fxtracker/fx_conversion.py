@@ -1,6 +1,6 @@
 def fx_conversion(curr1, curr2, amt):
     """
-    Converts a specific amount of money from current currency to desired currency 
+    Converts a specific amount of money from current currency (curr1) to desired currency (curr2)
     
     Parameters
     ----------
