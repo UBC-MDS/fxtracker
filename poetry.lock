@@ -559,6 +559,7 @@ files = [
 tests = ["asttokens", "littleutils", "pytest", "rich"]
 
 [[package]]
+
 name = "frozendict"
 version = "2.3.4"
 description = "A simple immutable dictionary"
@@ -1280,6 +1281,7 @@ files = [
 tests = ["pytest"]
 
 [[package]]
+
 name = "pycparser"
 version = "2.21"
 description = "C parser in Python"
@@ -1386,7 +1388,7 @@ pytest = ">=4.6"
 [package.extras]
 testing = ["fields", "hunter", "process-tests", "pytest-xdist", "six", "virtualenv"]
 
-[[package]]
+
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
@@ -1738,4 +1740,5 @@ requests = ">=2.26"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "3be3140bef3e5fc2b87a142c6d2428406497dce7bd454e671e6474809470b990"
+
+content-hash = "e2fa1ef02790d9565183ceb1becb4ca3310fc4c77d05787f65d9884659adaa18"
