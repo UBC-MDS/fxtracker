@@ -68,7 +68,6 @@ def pl_trend_viz(curr, start_date, end_date):
     
     data = data.rename(columns={"Close": "Percentage Change"})
     
-    
     title = 'Price trend over time for currency ' + curr
     
     chart = alt.Chart(data.reset_index(),title = title).mark_line().encode(
