@@ -1,6 +1,15 @@
 # Authors: Sarah Abdelazim, Markus Nam, Crystal Geng, Lennon Au-Yeung
 # Date: Jan 18, 2023
 
+import datetime
+import pandas as pd
+import altair as alt
+import numpy as np
+import yfinance as yf
+from yfinance import shared
+import altair_viewer
+alt.renderers.enable('mimetype')
+
 def price_trend_viz(curr, start_date, end_date):
     """
     Visualizes trend of the exchange rate of a currency pair between the selected start date and end date.
@@ -64,7 +73,7 @@ def price_trend_viz(curr, start_date, end_date):
     ).properties(height=400, width=800
     ).configure_axis(
         labelFontSize=14,                                       
-        titleFontSize=16     
+        titleFontSize=15     
     ).configure_title(
         fontSize=16)
 
