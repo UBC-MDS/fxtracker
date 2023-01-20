@@ -4,6 +4,7 @@ import datetime
 import pytest
 from pytest import raises
 import altair as alt
+import numpy as np
 
 def test_fx_rate_lookup():
     assert isinstance(pd.to_datetime(fx_rate_lookup('JPYHKD', 0.09)), datetime.datetime), 'Return string should be a valid YYYY-MM-DD format'
@@ -75,4 +76,40 @@ def test_price_trend_viz():
     
     # Check if an Altair chart is returned
     assert type(output_chart) == alt.vegalite.v4.api.Chart, "Altair chart object should be returned."
+
+def test_fx_conversion():
     
+    # Check if a numpy float is returned
+    assert isinstance(fx_conversion('EUR', 'USD', 100), np.float64), "Float should be returned."
+    
+    # Check input type of curr_1
+    with pytest.raises(TypeError, match = "Ticker of the current currency needs to be of str type."):
+        fx_conversion(1, 'USD', 100)
+        
+    # Check input type of curr_2
+    with pytest.raises(TypeError, match = "Ticker of the desired currency needs to be of str type."):
+        fx_conversion('EUR', 1, 100)
+        
+    # Check input type of amt
+    with pytest.raises(TypeError, match = "Amount of money to be converted needs to be a number."):
+        fx_conversion('EUR', 'USD', 'a')
+    
+    # Check if no arguments are passed
+    with pytest.raises(TypeError, match=r"^fx_conversion\(\) missing 3 required positional arguments: 'curr1', 'curr2', and 'amt'$"):
+        fx_conversion()
+        
+    # Check if curr_2 and amt arguments are not passed    
+    with pytest.raises(TypeError, match=r"^fx_conversion\(\) missing 2 required positional arguments: 'curr2' and 'amt'$"):
+        fx_conversion('USD')
+        
+    # Check if amt argument is not passed
+    with pytest.raises(TypeError, match=r"^fx_conversion\(\) missing 1 required positional argument: 'amt'$"):
+        fx_conversion('USD', 'EUR')
+        
+    # Check if wrong ticker(s) is/are passed
+    with pytest.raises(NameError, match="You have entered an invalid foreign ticker! Try again."):
+        fx_conversion('XXX', 'YYY', 100)
+    with pytest.raises(NameError, match="You have entered an invalid foreign ticker! Try again."):
+        fx_conversion('USD', 'YYY', 100)
+    with pytest.raises(NameError, match="You have entered an invalid foreign ticker! Try again."):
+        fx_conversion('XXX', 'EUR', 100)
