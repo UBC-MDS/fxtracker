@@ -35,8 +35,8 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
     """
     shared._ERRORS = {}
     curr_X = curr +'=X'
-    fx = yf.Ticker(curr_X)
     
+    #check input type of curr
     if not isinstance(curr, str):
         raise TypeError("curr needs to be of str type.")
         
@@ -48,8 +48,9 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
     if not isinstance(end_date, str):
         raise TypeError("end_date needs to be of str type.")
     
+    #Check type of visulization
     if chart_type not in ['line', 'area']:
-        raise TypeError("Your option of plotting should be from 'line' or 'area'")
+        raise ValueError("Your option of plotting should be from 'line' or 'area'")
 
     # Assert end date is later than start date
     format = "%Y-%m-%d"
@@ -57,6 +58,7 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
         raise ValueError("You have entered an end date which is earlier than the start date! Try again.")
     
     data = yf.download(curr_X, start_date, end_date)
+    
     if curr_X in shared._ERRORS and 'symbol may be delisted' in shared._ERRORS[curr_X] :
         raise NameError("You have entered an invalid foreign ticker! Try again.")
     
@@ -78,7 +80,7 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
             y = alt.Y('Percentage Change',axis=alt.Axis(format='%')),
             tooltip = alt.Tooltip('Percentage Change',format = '.2%')
         )
-    elif chart_type == 'area':
+    else:
         chart = alt.Chart(data.reset_index(),title = title).mark_area().encode(
             x = alt.X('Date'),
             y = alt.Y('Percentage Change',axis=alt.Axis(format='%')),
