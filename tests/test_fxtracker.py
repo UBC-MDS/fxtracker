@@ -53,29 +53,36 @@ def test_price_trend_viz():
     
     # Check input type of curr
     with pytest.raises(TypeError, match = "curr needs to be of str type."):
-        price_trend_viz(1, '2012-02-01', '2014-12-31')
+        price_trend_viz(1, '2012-02-01', '2014-12-31', 'High')
     
     # Check input type of start_date
     with pytest.raises(TypeError, match = "start_date needs to be of str type."):
-        price_trend_viz('EURUSD', 2.5, '2014-12-31')
+        price_trend_viz('EURUSD', 2.5, '2014-12-31', 'Low')
     
     # Check input type of end_date
     with pytest.raises(TypeError, match = "end_date needs to be of str type."):
-        price_trend_viz('EURUSD', '2012-02-01', 333)
+        price_trend_viz('EURUSD', '2012-02-01', 333, 'Close')
+        
+    with pytest.raises(Exception, match = "Your option of plotting should be from 'Open', 'High', 'Low' or 'Close'"):
+        price_trend_viz('EURUSD', '2012-12-31', '2014-12-31', 'Highest')
+        
+    with pytest.raises(Exception, match = "Your option of plotting should be from 'Open', 'High', 'Low' or 'Close'"):
+        price_trend_viz('EURUSD', '2012-12-31', '2014-12-31', 111)
     
     # Check if the end date entered is later than 2003-12-01
     with pytest.raises(Exception, match = "No data exists before 2003-12-01, please try again."):
-        price_trend_viz('EURUSD', '1992-02-01', '1994-12-31')
+        price_trend_viz('EURUSD', '1992-02-01', '1994-12-31', 'High')
     
     # Check if the start date entered is earlier than or equal to today 
     with pytest.raises(Exception, match = "You entered a start date later than today, please try again."):
-        price_trend_viz('EURUSD', '2023-12-31', '2024-12-31')
-    
+        price_trend_viz('EURUSD', '2023-12-31', '2024-12-31', 'High')
+      
            
-    output_chart = price_trend_viz("EURUSD", "2018-12-01", "2022-12-01")
+    output_chart = price_trend_viz('EURUSD', '2018-12-01', '2022-12-01', 'High')
     
-    # Check if an Altair chart is returned
+    # Check if an Altair chart is returned, code referenced from pystockwatch
     assert type(output_chart) == alt.vegalite.v4.api.Chart, "Altair chart object should be returned."
+
 
 def test_fx_conversion():
     
