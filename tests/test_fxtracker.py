@@ -1,4 +1,7 @@
-from fxtracker.fx_rate_lookup import fx_rate_lookup  # need to change after we combine the .py into one single .py
+from fxtracker.fx_rate_lookup import fx_rate_lookup# need to change after we combine the .py into one single .py
+from fxtracker.pl_trend_viz import *
+from fxtracker.price_trend_viz import *
+from fxtracker.fx_conversion import *
 import pandas as pd
 import datetime
 import pytest
@@ -23,22 +26,32 @@ def test_fx_rate_lookup():
     
 def test_pl_trend_viz():
     
-    #Start date invalid
-    with raises(ValueError) as start_date_error:
-        pl_trend_viz("EURUSD", "20200101", "2022-01-10")
+    #Curr type invalid
+    with raises(TypeError) as curr_type_error:
+        pl_trend_viz(1, "20200101", "2022-01-10",'line')
 
-    #End date invalid
-    with raises(ValueError) as end_date_error:
-        pl_trend_viz("EURUSD", "2020-01-01", "20220110")
+    #Start date type invalid
+    with raises(TypeError) as start_date_type_error:
+        pl_trend_viz("EURUSD", 1234, "20220110",'line')
 
+    #End date type invalid
+    with raises(TypeError) as end_date_type_error:
+        pl_trend_viz("EURUSD", "2020-01-01", 1234,'line')
+        
+    #Type of visulization error
+    with raises(ValueError) as chart_type_error:
+        pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'point')
+    
     #Start date > end date
     with raises(ValueError) as date_range_error:
-        pl_trend_viz("EURUSD", "2022-01-01", "2020-01-10")
-        
+        pl_trend_viz("EURUSD", "2022-01-01", "2020-01-10", 'line')
+    
+    #Curr name error
     with raises(NameError) as error_name:
-        pl_trend_viz("ABCD", "2020-01-01", "2022-01-01")
+        pl_trend_viz("ABCD", "2020-01-01", "2022-01-01", 'line')
         
-    output = pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01")
+    output = pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'area')
+    output = pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'line')
     assert type(output) == alt.vegalite.v4.api.Chart, "Altair chart object should be returned."
     
     raw = output.to_dict()
@@ -46,8 +59,6 @@ def test_pl_trend_viz():
     assert raw['encoding']['x']['field'] == 'Date', 'Date should be mapped to the x axis'
     
     assert raw['encoding']['y']['field'] == 'Percentage Change', 'Percentage Change should be mapped to the y axis'
-    
-    assert raw['mark'] == 'line', "Altair mark should be 'line'"
 
 def test_price_trend_viz():
     
