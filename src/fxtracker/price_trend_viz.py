@@ -1,5 +1,5 @@
 # Authors: Sarah Abdelazim, Markus Nam, Crystal Geng, Lennon Au-Yeung
-# Date: Jan 18, 2023
+# Date: Jan 21, 2023
 
 import datetime
 import pandas as pd
@@ -10,7 +10,7 @@ from yfinance import shared
 import altair_viewer
 alt.renderers.enable('mimetype')
 
-def price_trend_viz(curr, start_date, end_date):
+def price_trend_viz(curr, start_date, end_date, option):
     """
     Visualizes trend of the exchange rate of a currency pair between the selected start date and end date.
     
@@ -22,7 +22,8 @@ def price_trend_viz(curr, start_date, end_date):
         Start date of the selected period of time
     end_date : string
         End date of the selected period of time
-
+    option: string
+        A choice of option from ['Open', 'High', 'Low', 'Close'] 
     
     Returns
     --------
@@ -44,6 +45,9 @@ def price_trend_viz(curr, start_date, end_date):
     # Check input type of end_date  
     if not isinstance(end_date, str):
         raise TypeError("end_date needs to be of str type.")
+        
+    if option not in ['Open', 'High', 'Low', 'Close']:
+        raise Exception("Your option of plotting should be from 'Open', 'High', 'Low' or 'Close'")
      
     # Check if the end date entered is later than 2003-12-01
     if(datetime.datetime.strptime(end_date, "%Y-%m-%d") < datetime.datetime.strptime('2003-12-01', "%Y-%m-%d")):
@@ -64,12 +68,12 @@ def price_trend_viz(curr, start_date, end_date):
     
     trend_plot = alt.Chart(
         data.reset_index(), 
-        title = f"Trend of Exchange Rate of {curr} from {start_date} to {end_date}"
+        title = f"Trend of Exchange Rate (Daily {option}) of {curr} from {start_date} to {end_date}"
     ).mark_line(
     ).encode(
         x = alt.X('Date', axis = alt.Axis(format = ("%Y-%m-%d"))),
-        y = alt.Y('Close', title = 'Exchange Rate', scale = alt.Scale(zero=False)),
-        tooltip = alt.Tooltip('Close',format = '.2%')
+        y = alt.Y(option, title = 'Exchange Rate', scale = alt.Scale(zero=False)),
+        tooltip = alt.Tooltip(option, format = '.2%')
     ).properties(height=400, width=800
     ).configure_axis(
         labelFontSize=14,                                       
@@ -81,4 +85,3 @@ def price_trend_viz(curr, start_date, end_date):
     trend_plot.show()
     
     return trend_plot
-    
