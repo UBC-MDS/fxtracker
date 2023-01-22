@@ -11,8 +11,13 @@ import altair as alt
 import numpy as np
 
 def test_fx_rate_lookup():
-    assert isinstance(pd.to_datetime(fx_rate_lookup('JPYHKD', 0.09)), datetime.datetime), 'Return string should be a valid YYYY-MM-DD format'
-        
+
+    with raises(TypeError):
+        fx_rate_lookup(123, 456)
+    
+    with raises(TypeError):
+        fx_rate_lookup('JPYHKD', "456")
+    
     with pytest.raises(Exception):
         fx_rate_lookup('AAABBB', 0.09)
     
@@ -24,6 +29,8 @@ def test_fx_rate_lookup():
         
     with pytest.raises(Exception):
         fx_rate_lookup('JPYHKD')
+
+    assert isinstance(pd.to_datetime(fx_rate_lookup('JPYHKD', 0.09)), datetime.datetime), 'Return string should be a valid YYYY-MM-DD format'
     
 def test_pl_trend_viz():
     
