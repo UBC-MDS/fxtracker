@@ -3,37 +3,79 @@
 This is a package created as a group project for DSCI_524 Collaborative Software Development of UBC Master of Data Science (MDS) program 2022-2023. Based on the foreign exchange data in Yahoo Finance, this package allows user to perform currency conversion based on the latest available exchange rate, lookup a target exchange rate from historical data as well plotting exchange rate history and profit/loss percentage history by specifying a currency pair (and other input parameters).
 
 ## Function Description
-- `fx_conversion` <br>
-  Convert the input amount of currency 1 to currency 2 based on the latest available exchange rate.
-- `fx_rate_lookup` <br>
-  Lookup for the date of the first occurence (in reverse chronological order) on which the input target rate of a currency pair is within the day's high/low.
-- `price_trend_viz` <br>
-  Plot the historical exchange rate of the input currency pair for a specific period of time.
-- `pl_trend_viz` <br>
-  Plot the historical profit/loss percentage of the input currency pair for a specific period of time.
+
+-   `fx_conversion` <br> Convert the input amount of currency 1 to currency 2 based on the latest available exchange rate.
+-   `fx_rate_lookup` <br> Lookup for the date of the first occurence (in reverse chronological order) on which the input target rate of a currency pair is within the day's high/low.
+-   `price_trend_viz` <br> Plot the historical exchange rate of the input currency pair for a specific period of time.
+-   `pl_trend_viz` <br> Plot the historical profit/loss percentage of the input currency pair for a specific period of time.
 
 There is a python package ([`forex-python`](https://pypi.org/project/forex-python/)) relevant to foreign exchange. That package is basically for retrieving exchange rates and bitcoin prices in plain text as well as performing conversion. It does not provide visualizations and lookup function like `fxtracker` does. `fxtracker` allows user to visualize the trends and understand if a target price of a currency pair of interest is within a reasonable range.
 
 ## Installation
 
-```bash
+``` bash
 $ pip install fxtracker
 ```
 
 ## Usage
 
-- This section will be updated in later milestones.
+If the package is installed successfully, users then need the following nine input parameters:
+
+`curr`, `target_px`, `start_date`, `end_date`, `chart_type`, `option`, `curr1`, `curr2`, `amt`. The output of the functions will be in forms of a datetime string, a float and interactive plots from the "altair" package.
+
+`fxtracker` can be used to find the the first date on which the target price falling between day high and day low, convert a specific amount of money from one currency to another, visualize the trend of the profit and loss of a currency pair and the trend of the exchange rate of a currency pair between the selected start date and end date.
+
+The functions can be imported from the package as follows:
+
+``` python
+from fxtracker.fxtracker import fx_rate_lookup
+from fxtracker.fxtracker import pl_trend_viz
+from fxtracker.fxtracker import price_trend_viz
+from fxtracker.fxtracker import fx_conversion
+```
+
+### To look up the first date (reverse chronological order) on which the target price falling between day high and day low based on the availability of data:
+
+    fx_rate_lookup('EURUSD', 1.072)
+
+'2023-01-10'
+
+### To visualize the trend of the profit and loss of a currency pair between the selected start date and end date.
+
+If a line chart is specified in the input:
+
+    pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'line')
+
+![](docs/pl_trend_viz_ex_line.png)
+
+If an area chart is specified in the input:
+
+    pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'area')
+
+![](docs/pl_trend_viz_ex_area.png)
+
+### To convert a specific amount of money from current currency (curr1) to desired currency (curr2)
+
+    fx_conversion('EUR', 'USD', 150.75)
+
+163.68
+
+### To visualize the trend of the exchange rate of a currency pair between the selected start date and end date.
+
+    price_trend_viz('EURUSD', '2018-12-01', '2022-12-01', 'High')
+
+![](docs/price_trend_viz_ex.png)
 
 ## Dependencies
 
-- python = "^3.9"
-- pandas = "^1.5.2"
-- altair = "^4.2.0"
-- numpy = "^1.24.1"
-- plotly = "^5.12.0"
-- yfinance = "^0.2.3"
-- ipykernel = "^6.20.2"
-- altair-viewer = "^0.4.0"
+-   python = "\^3.9"
+-   pandas = "\^1.5.2"
+-   altair = "\^4.2.0"
+-   numpy = "\^1.24.1"
+-   plotly = "\^5.12.0"
+-   yfinance = "\^0.2.3"
+-   ipykernel = "\^6.20.2"
+-   altair-viewer = "\^0.4.0"
 
 ## Contributing
 
