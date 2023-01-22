@@ -81,12 +81,14 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
     >>> pl_trend_viz('EURUSD', '2018-12-31', '2022-12-31','line')
     """
     shared._ERRORS = {}
-    curr_X = curr +'=X'
+    
     
     #check input type of curr
     if not isinstance(curr, str):
         raise TypeError("curr needs to be of str type.")
-        
+    
+    curr_X = curr +'=X'    
+    
     # Check input type of start_date     
     if not isinstance(start_date, str):
         raise TypeError("start_date needs to be of str type.")
@@ -103,7 +105,7 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
     format = "%Y-%m-%d"
     if(datetime.datetime.strptime(end_date, format) < datetime.datetime.strptime(start_date, format)):
         raise ValueError("You have entered an end date which is earlier than the start date! Try again.")
-    
+        
     data = yf.download(curr_X, start_date, end_date)
     
     if curr_X in shared._ERRORS and 'symbol may be delisted' in shared._ERRORS[curr_X] :
@@ -135,7 +137,7 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
         )
     
     chart.show()
-    
+
     return chart
 
 
