@@ -34,6 +34,14 @@ def fx_rate_lookup(curr, target_px):
         '2023-01-10'
     """
     
+    #check input type of curr
+    if not isinstance(curr, str):
+        raise TypeError("curr needs to be of str type.")
+        
+    # Check input type of target_px     
+    if not isinstance(target_px, (int, float)):
+        raise TypeError("target_px needs to be a number.")
+  
     df = yf.download(curr + '=X', progress=False, show_errors=False)
     if len(df) == 0:
         raise Exception('No data found from data source. Check your ticker.')
