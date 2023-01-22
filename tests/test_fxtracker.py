@@ -88,6 +88,10 @@ def test_price_trend_viz():
     # Check if the start date entered is earlier than or equal to today 
     with pytest.raises(Exception, match = "You entered a start date later than today, please try again."):
         price_trend_viz('EURUSD', '2023-12-31', '2024-12-31', 'High')
+
+    # Check if the same dates are entered for start date and end date
+    with pytest.raises(Exception, match = "No data found from data source. Check your ticker and date."):
+        price_trend_viz('EURUSD', '2013-12-31', '2013-12-31', 'High')
       
            
     output_chart = price_trend_viz('EURUSD', '2018-12-01', '2022-12-01', 'High')
