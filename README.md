@@ -26,12 +26,15 @@ $ pip install fxtracker
 
 ## Dependencies
 
-  - pandas
-  - pandas-datareader
-  - altair
-  - numpy
-  - plotly
-  - yfinance
+- python = "^3.9"
+- pandas = "^1.5.2"
+- altair = "^4.2.0"
+- numpy = "^1.24.1"
+- plotly = "^5.12.0"
+- yfinance = "^0.2.3"
+- ipykernel = "^6.20.2"
+- altair-viewer = "^0.4.0"
+
 ## Contributing
 
 Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
