@@ -59,8 +59,10 @@ def test_pl_trend_viz():
         pl_trend_viz("ABCD", "2020-01-01", "2022-01-01", 'line')
         
     output = pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'area')
-    output = pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'line')
     assert type(output) == alt.vegalite.v4.api.Chart, "Altair chart object should be returned."
+    
+    output2 = pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'line')
+    assert type(output2) == alt.vegalite.v4.api.Chart, "Altair chart object should be returned."
     
     raw = output.to_dict()
     
