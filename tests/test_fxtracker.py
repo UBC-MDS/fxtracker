@@ -1,7 +1,8 @@
-from fxtracker.fx_rate_lookup import fx_rate_lookup# need to change after we combine the .py into one single .py
-from fxtracker.pl_trend_viz import *
-from fxtracker.price_trend_viz import *
-from fxtracker.fx_conversion import *
+from fxtracker.fxtracker import fx_rate_lookup
+from fxtracker.fxtracker import pl_trend_viz
+from fxtracker.fxtracker import price_trend_viz
+from fxtracker.fxtracker import fx_conversion
+
 import pandas as pd
 import datetime
 import pytest
