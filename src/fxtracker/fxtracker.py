@@ -136,7 +136,7 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
             tooltip = alt.Tooltip('Percentage Change',format = '.2%')
         )
     
-    chart.show()
+    #chart.show()
 
     return chart
 
@@ -213,7 +213,7 @@ def price_trend_viz(curr, start_date, end_date, option):
         fontSize=16)
 
     
-    trend_plot.show()
+    #trend_plot.show()
     
     return trend_plot
 
