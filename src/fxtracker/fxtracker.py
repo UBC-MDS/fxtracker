@@ -49,7 +49,8 @@ def fx_rate_lookup(curr, target_px):
     # To check if the input price is within the High and Low of any previous
     # days.
     myquery = 'High >= ' + str(target_px) + 'and Low <= ' + str(target_px)
-    mydates = df.query(myquery).index.format()
+    mydates = df.query(myquery).index.format(
+        formatter=lambda x: x.strftime('%Y-%m-%d'))
 
     # Found, return the latest one (closest to the query date)
     if len(mydates) > 0:
