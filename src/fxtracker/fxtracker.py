@@ -11,7 +11,9 @@ alt.renderers.enable('mimetype')
 
 def fx_rate_lookup(curr, target_px):
     """
-    Return the first date (reverse chronological order) on which the target price falling between day high and day low based on the availability of data.
+    Return the first date (reverse chronological order) on which
+    the target price falling between day high and
+    day low based on the availability of data.
 
     Parameters
     ----------
@@ -23,7 +25,8 @@ def fx_rate_lookup(curr, target_px):
     Returns
     --------
     date: string
-        The closest date in YYYY-MM-DD on which the target price falling between day high and day low.
+        The closest date in YYYY-MM-DD on which the target
+        price falling between day high and day low.
 
     Examples
     --------
@@ -57,7 +60,8 @@ def fx_rate_lookup(curr, target_px):
 
 def pl_trend_viz(curr, start_date, end_date, chart_type):
     """
-    Visualizes trend of the profit and loss of a currency pair between the selected start date and end date.
+    Visualizes trend of the profit and loss of a
+    currency pair between the selected start date and end date.
 
     Parameters
     ----------
@@ -72,7 +76,8 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
 
     Returns
     --------
-    Line plot that shows the trend of the profit and loss of a currency pair over the selected period of time
+    Line plot that shows the trend of the profit and
+    loss of a currency pair over the selected period of time
 
     Examples
     --------
@@ -101,13 +106,15 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
 
     # Assert end date is later than start date
     format = "%Y-%m-%d"
-    if(datetime.datetime.strptime(end_date, format) < datetime.datetime.strptime(start_date, format)):
+    if (datetime.datetime.strptime(end_date, format)
+       < datetime.datetime.strptime(start_date, format)):
         raise ValueError(
-            "You have entered an end date which is earlier than the start date! Try again.")
+            "The end date is earlier than the start date! Try again.")
 
     data = yf.download(curr_X, start_date, end_date)
 
-    if curr_X in shared._ERRORS and 'symbol may be delisted' in shared._ERRORS[curr_X]:
+    if (curr_X in shared._ERRORS and
+            'symbol may be delisted' in shared._ERRORS[curr_X]):
         raise NameError(
             "You have entered an invalid foreign ticker! Try again.")
 
@@ -145,7 +152,8 @@ def pl_trend_viz(curr, start_date, end_date, chart_type):
 
 def price_trend_viz(curr, start_date, end_date, option):
     """
-    Visualizes trend of the exchange rate of a currency pair between the selected start date and end date.
+    Visualizes trend of the exchange rate of a
+    currency pair between the selected start date and end date.
 
     Parameters
     ----------
@@ -160,7 +168,8 @@ def price_trend_viz(curr, start_date, end_date, option):
 
     Returns
     --------
-    Line plot that shows the trend of the exchange rate of a currency pair over the selected period of time
+    Line plot that shows the trend of the exchange rate of
+    a currency pair over the selected period of time
 
     Examples
     --------
@@ -181,14 +190,17 @@ def price_trend_viz(curr, start_date, end_date, option):
 
     if option not in ['Open', 'High', 'Low', 'Close']:
         raise Exception(
-            "Your option of plotting should be from 'Open', 'High', 'Low' or 'Close'")
+            "Your option of plotting should be "
+            "from 'Open', 'High', 'Low' or 'Close'")
 
     # Check if the end date entered is later than 2003-12-01
-    if(datetime.datetime.strptime(end_date, "%Y-%m-%d") < datetime.datetime.strptime('2003-12-01', "%Y-%m-%d")):
+    if (datetime.datetime.strptime(end_date, "%Y-%m-%d")
+            < datetime.datetime.strptime('2003-12-01', "%Y-%m-%d")):
         raise Exception("No data exists before 2003-12-01, please try again.")
 
     # Check if the start date entered is earlier than or equal to today
-    if(datetime.datetime.strptime(start_date, "%Y-%m-%d") > datetime.datetime.today()):
+    if (datetime.datetime.strptime(start_date, "%Y-%m-%d")
+            > datetime.datetime.today()):
         raise Exception(
             "You entered a start date later than today, please try again.")
 
@@ -203,7 +215,8 @@ def price_trend_viz(curr, start_date, end_date, option):
 
     trend_plot = alt.Chart(
         data.reset_index(),
-        title=f"Trend of Exchange Rate (Daily {option}) of {curr} from {start_date} to {end_date}"
+        title=f"Trend of Exchange Rate (Daily {option})"
+        "of {curr} from {start_date} to {end_date}"
     ).mark_line(
     ).encode(
         x=alt.X('Date', axis=alt.Axis(format=("%Y-%m-%d"))),
@@ -223,7 +236,8 @@ def price_trend_viz(curr, start_date, end_date, option):
 
 def fx_conversion(curr1, curr2, amt):
     """
-    Converts a specific amount of money from current currency (curr1) to desired currency (curr2)
+    Converts a specific amount of money from current
+    currency (curr1) to desired currency (curr2)
 
     Parameters
     ----------
@@ -268,8 +282,8 @@ def fx_conversion(curr1, curr2, amt):
         show_errors=False)
 
     # Check for invalid ticker name
-    if curr_pair in shared._ERRORS and 'symbol may be delisted' in shared._ERRORS[
-            curr_pair]:
+    if (curr_pair in shared._ERRORS and
+            'symbol may be delisted' in shared._ERRORS[curr_pair]):
         raise NameError(
             "You have entered an invalid foreign ticker! Try again.")
 
