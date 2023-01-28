@@ -222,7 +222,7 @@ def price_trend_viz(curr, start_date, end_date, option):
         x=alt.X('Date', axis=alt.Axis(format=("%Y-%m-%d"))),
         y=alt.Y(option, title='Exchange Rate', scale=alt.Scale(zero=False)),
         tooltip=alt.Tooltip(option, format='.2%')
-    ).properties(height=400, width=800
+    ).properties(height=400, width=600
                  ).configure_axis(
         labelFontSize=14,
         titleFontSize=15
