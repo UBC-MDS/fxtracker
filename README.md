@@ -46,13 +46,13 @@ If a line chart is specified in the input:
 
     pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'line')
 
-![](docs/pl_trend_viz_ex_line.png)
+![](https://user-images.githubusercontent.com/112665905/215251530-8a3cf86f-6854-47b5-b7b4-2ff214e88217.png)
 
 If an area chart is specified in the input:
 
     pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'area')
 
-![](docs/pl_trend_viz_ex_area.png)
+![](https://user-images.githubusercontent.com/112665905/215251527-3381d5de-c776-4b5f-9777-c687b287f089.png)
 
 ### To convert a specific amount of money from current currency (curr1) to desired currency (curr2)
 
@@ -64,7 +64,7 @@ If an area chart is specified in the input:
 
     price_trend_viz('EURUSD', '2018-12-01', '2022-12-01', 'High')
 
-![](docs/price_trend_viz_ex.png)
+![](https://user-images.githubusercontent.com/112665905/215251534-3d452198-23bc-4b42-885c-d76a5ca68f25.png)
 
 ## Dependencies
 
