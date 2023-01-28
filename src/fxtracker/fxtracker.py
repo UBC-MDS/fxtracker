@@ -214,12 +214,12 @@ def price_trend_viz(curr, start_date, end_date, option):
         raise Exception(
             'No data found from data source. Check your ticker and date.')
 
-    line_1 = f"Trend of Exchange Rate (Daily {option})" 
+    line_1 = f"Trend of Exchange Rate (Daily {option})"
     line_2 = f" of {curr} from {start_date} to {end_date}"
 
     trend_plot = alt.Chart(
         data.reset_index(),
-        title = line_1 + line_2
+        title=line_1+line_2
     ).mark_line(
     ).encode(
         x=alt.X('Date', axis=alt.Axis(format=("%Y-%m-%d"))),
