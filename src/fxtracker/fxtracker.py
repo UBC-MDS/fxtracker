@@ -216,7 +216,7 @@ def price_trend_viz(curr, start_date, end_date, option):
 
     trend_plot = alt.Chart(
         data.reset_index(),
-        title=f"Trend of Exchange Rate (Daily {option})" + 
+        title=f"Trend of Exchange Rate (Daily {option})"  
         f" of {curr} from {start_date} to {end_date}"
     ).mark_line(
     ).encode(
