@@ -42,7 +42,7 @@ from fxtracker.fxtracker import fx_conversion
 
 '2023-01-10'
 
-### To visualize the trend of the profit and loss of a currency pair between the selected start date and end date.
+### To visualize the trend of the profit and loss of a currency pair between the selected start date and end date:
 
 If a line chart is specified in the input:
 
@@ -56,13 +56,13 @@ If an area chart is specified in the input:
 
 ![](https://user-images.githubusercontent.com/112665905/215251527-3381d5de-c776-4b5f-9777-c687b287f089.png)
 
-### To convert a specific amount of money from current currency (curr1) to desired currency (curr2)
+### To convert a specific amount of money from current currency (curr1) to desired currency (curr2):
 
     fx_conversion('EUR', 'USD', 150.75)
 
 163.68
 
-### To visualize the trend of the exchange rate of a currency pair between the selected start date and end date.
+### To visualize the trend of the exchange rate of a currency pair between the selected start date and end date:
 
     price_trend_viz('EURUSD', '2018-12-01', '2022-12-01', 'High')
 
