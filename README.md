@@ -2,6 +2,8 @@
 
 This is a package created as a group project for DSCI_524 Collaborative Software Development of UBC Master of Data Science (MDS) program 2022-2023. Based on the foreign exchange data in Yahoo Finance, this package allows user to perform currency conversion based on the latest available exchange rate, lookup a target exchange rate from historical data as well plotting exchange rate history and profit/loss percentage history by specifying a currency pair (and other input parameters).
 
+The full documentation of this package can also be found on <https://fxtracker.readthedocs.io/en/latest/>
+
 ## Function Description
 
 -   `fx_conversion` <br> Convert the input amount of currency 1 to currency 2 based on the latest available exchange rate.
