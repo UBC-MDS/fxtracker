@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.1 (2023-01-29)
+
+
 ## v0.1.0 (2023-01-29)
 ### Feature
 * Add input check for fx_rate_lookup() ([`4453713`](https://github.com/UBC-MDS/fxtracker/commit/445371316d55a607b1d9a89df03fc1f723c9e3fe))
