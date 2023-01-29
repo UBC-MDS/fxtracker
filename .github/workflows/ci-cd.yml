@@ -80,6 +80,41 @@ jobs:
       - name: Install package
         run: poetry install
 
+      # - name: Temporarily disable "include administrators" branch protection
+      #   uses: benjefferies/branch-protection-bot@master
+      #   if: always()
+      #   with:
+      #     access-token: ${{ secrets.ACCESS_TOKEN }} 
+      #     branch: ${{ github.event.repository.default_branch }}
+            
+      # - name: Bump version and tagging and publish
+      #   run: |
+      #     git config --local user.email "action@github.com"
+      #     git config --local user.name "GitHub Action"
+      #     git pull origin master
+      #     poetry run semantic-release version
+      #     poetry version $(grep "version" */__init__.py | cut -d "'" -f 2 | cut -d '"' -f 2)
+      #     git commit -m "Add changes" -a
+          
+      # - name: Push package version changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+      # - name: Enable "include administrators" branch protection
+      #   uses: benjefferies/branch-protection-bot@master
+      #   if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
+      #   with:
+      #     access-token: ${{ secrets.ACCESS_TOKEN }}
+      #     owner: UBC-MDS
+      #     repo: fxtracker
+      #     branch: ${{ github.event.repository.default_branch }}
+          
+      # - name: Get release tag version from package version
+      #   run: |
+      #     echo ::set-output name=release_tag::$(grep "version" */__init__.py | cut -d "'" -f 2 | cut -d '"' -f 2)
+      #   id: release
+      
       - name: Use Python Semantic Release to prepare release
         env:
           # This token is created automatically by GH Actions
@@ -108,11 +143,3 @@ jobs:
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
-          
-      - name: Enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@master
-        if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
-        with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          owner: UBC-MDS
-          repo: fxtracker
