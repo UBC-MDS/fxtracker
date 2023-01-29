@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fxtracker"
-version = "0.2.0"
+version = "0.2.1"
 description = "A package that plots current and historical price graphs for currency pairs as well as converts currency."
 authors = ["Sarah Abdelazim, Markus Nam, Crystal Geng, Lennon Au-Yeung"]
 license = "MIT"

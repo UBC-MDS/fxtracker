@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.1 (2023-01-29)
+
+
 ## v0.2.0 (2023-01-29)
 ### Feature
 * **new:** Updated project. BREAKING CHANGE ([`f74ba12`](https://github.com/UBC-MDS/fxtracker/commit/f74ba12ed03bd4688be154d28b27a7e930c79889))
