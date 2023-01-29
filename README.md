@@ -1,3 +1,7 @@
+[![ci-cd](https://github.com/UBC-MDS/fxtracker/actions/workflows/ci-cd.yml/badge.svg?branch=main)](https://github.com/UBC-MDS/fxtracker/actions/workflows/ci-cd.yml)
+[![codecov](https://codecov.io/gh/UBC-MDS/fxtracker/branch/main/graph/badge.svg?token=N4sBOXKB87)](https://codecov.io/gh/UBC-MDS/fxtracker)
+[![Documentation Status](https://readthedocs.org/projects/fxtracker/badge/?version=latest)](https://fxtracker.readthedocs.io/en/latest/?badge=latest)
+
 # fxtracker
 
 This is a package created as a group project for DSCI_524 Collaborative Software Development of UBC Master of Data Science (MDS) program 2022-2023. Based on the foreign exchange data in Yahoo Finance, this package allows user to perform currency conversion based on the latest available exchange rate, lookup a target exchange rate from historical data as well plotting exchange rate history and profit/loss percentage history by specifying a currency pair (and other input parameters).
