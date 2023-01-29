@@ -5,6 +5,9 @@ description = "A package that plots current and historical price graphshs for cu
 authors = ["Sarah Abdelazim, Markus Nam, Crystal Geng, Lennon Au-Yeung"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/UBC-MDS/fxtracker"
+repository = "https://github.com/UBC-MDS/fxtracker"
+documentation = 'https://fxtracker.readthedocs.io'
 
 [tool.poetry.dependencies]
 python = "^3.9"
