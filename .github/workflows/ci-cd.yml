@@ -1,6 +1,12 @@
 name: ci-cd
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   ci:
@@ -93,3 +99,11 @@ jobs:
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
+          
+      - name: Enable "include administrators" branch protection
+        uses: benjefferies/branch-protection-bot@master
+        if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          owner: <github_username_or_org>
+          repo: <github_repo_name>

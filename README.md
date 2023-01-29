@@ -25,36 +25,16 @@ If the package is installed successfully, users then need the following nine inp
 
 `curr`, `target_px`, `start_date`, `end_date`, `chart_type`, `option`, `curr1`, `curr2`, `amt`. The output of the functions will be in forms of a datetime string, a float and interactive plots from the "altair" package.
 
-`fxtracker` can be used to find the the first date on which the target price falling between day high and day low, convert a specific amount of money from one currency to another, visualize the trend of the profit and loss of a currency pair and the trend of the exchange rate of a currency pair between the selected start date and end date.
+`fxtracker` can be used to convert a specific amount of money from one currency to another, find the the first date on which the target price falling between day high and day low, visualize the trend of the exchange rate of a currency pair and the trend of the profit and loss of a currency pair between the selected start date and end date.
 
 The functions can be imported from the package as follows:
 
 ``` python
-from fxtracker.fxtracker import fx_rate_lookup
-from fxtracker.fxtracker import pl_trend_viz
-from fxtracker.fxtracker import price_trend_viz
 from fxtracker.fxtracker import fx_conversion
+from fxtracker.fxtracker import fx_rate_lookup
+from fxtracker.fxtracker import price_trend_viz
+from fxtracker.fxtracker import pl_trend_viz
 ```
-
-### To look up the first date (reverse chronological order) on which the target price falling between day high and day low based on the availability of data:
-
-    fx_rate_lookup('EURUSD', 1.072)
-
-'2023-01-10'
-
-### To visualize the trend of the profit and loss of a currency pair between the selected start date and end date:
-
-If a line chart is specified in the input:
-
-    pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'line')
-
-![](https://user-images.githubusercontent.com/112665905/215251530-8a3cf86f-6854-47b5-b7b4-2ff214e88217.png)
-
-If an area chart is specified in the input:
-
-    pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'area')
-
-![](https://user-images.githubusercontent.com/112665905/215251527-3381d5de-c776-4b5f-9777-c687b287f089.png)
 
 ### To convert a specific amount of money from current currency (curr1) to desired currency (curr2):
 
@@ -62,11 +42,31 @@ If an area chart is specified in the input:
 
 163.68
 
+### To look up the first date (reverse chronological order) on which the target price falling between day high and day low based on the availability of data:
+
+    fx_rate_lookup('EURUSD', 1.072)
+
+'2023-01-10'
+
 ### To visualize the trend of the exchange rate of a currency pair between the selected start date and end date:
 
-    price_trend_viz('EURUSD', '2018-12-01', '2022-12-01', 'High')
+    price_trend_viz('EURUSD', '2018-12-01', '2022-12-01', 'High').show()
 
 ![](https://user-images.githubusercontent.com/112665905/215251534-3d452198-23bc-4b42-885c-d76a5ca68f25.png)
+
+### To visualize the trend of the profit and loss of a currency pair between the selected start date and end date:
+
+If a line chart is specified in the input:
+
+    pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'line').show()
+
+![](https://user-images.githubusercontent.com/112665905/215251530-8a3cf86f-6854-47b5-b7b4-2ff214e88217.png)
+
+If an area chart is specified in the input:
+
+    pl_trend_viz("EURUSD", "2020-01-01", "2022-01-01", 'area').show()
+
+![](https://user-images.githubusercontent.com/112665905/215251527-3381d5de-c776-4b5f-9777-c687b287f089.png)
 
 ## Dependencies
 
