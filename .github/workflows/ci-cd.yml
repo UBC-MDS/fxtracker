@@ -84,7 +84,8 @@ jobs:
         uses: benjefferies/branch-protection-bot@master
         if: always()
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}    
+          access-token: ${{ secrets.ACCESS_TOKEN }} 
+          branch: ${{ github.event.repository.default_branch }}
             
       - name: Bump version and tagging and publish
         run: |
@@ -107,6 +108,7 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           owner: UBC-MDS
           repo: fxtracker
+          branch: ${{ github.event.repository.default_branch }}
           
       - name: Get release tag version from package version
         run: |
