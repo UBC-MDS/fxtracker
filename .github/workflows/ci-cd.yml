@@ -36,6 +36,15 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           files: ./coverage.xml   # coverage report
+        
+      - name: Upload coverage to Codecov  
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
 
       - name: Build documentation
         run: poetry run make html --directory docs/
@@ -105,5 +114,5 @@ jobs:
         if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
-          owner: <github_username_or_org>
-          repo: <github_repo_name>
+          owner: UBC-MDS
+          repo: fxtracker
