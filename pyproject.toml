@@ -15,6 +15,7 @@ plotly = "^5.12.0"
 yfinance = "^0.2.3"
 ipykernel = "^6.20.2"
 altair-viewer = "^0.4.0"
+python-semantic-release = "^7.33.0"
 
 [tool.poetry.dev-dependencies]
 
@@ -29,16 +30,18 @@ flake8 = "^6.0.0"
 sphinxcontrib-napoleon = "^0.7"
 
 [tool.semantic_release]
-version_variable = "pyproject.toml:version" # version location
-branch = "main"                             # branch to make releases of
-changelog_file = "CHANGELOG.md"             # changelog file
-build_command = "poetry build"              # build dists
-dist_path = "dist/"                         # where to put dists
-upload_to_release = true                    # auto-create GitHub release
-upload_to_pypi = false                      # don't auto-upload to PyPI
-remove_dist = false                         # don't remove dists
-patch_without_tag = true                    # patch release by default
+version_variable = "fxtracker/__init__.py:__version__"  # version location
+version_source = "commit"                               # version source
+branch = "main"                                         # branch to make releases of
+changelog_file = "CHANGELOG.md"                         # changelog file
+build_command = "poetry build"                          # build dists
+dist_path = "dist/"                                     # where to put dists
+upload_to_release = true                                # auto-create GitHub release
+upload_to_pypi = false                                  # don't auto-upload to PyPI
+remove_dist = false                                     # don't remove dists
+patch_without_tag = true                                # patch release by default
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
