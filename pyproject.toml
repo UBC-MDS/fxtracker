@@ -30,7 +30,7 @@ flake8 = "^6.0.0"
 sphinxcontrib-napoleon = "^0.7"
 
 [tool.semantic_release]
-version_variable = "fxtracker/__init__.py:__version__"  # version location
+version_variable = "pyproject.toml:version"             # version location
 version_source = "commit"                               # version source
 branch = "main"                                         # branch to make releases of
 changelog_file = "CHANGELOG.md"                         # changelog file
