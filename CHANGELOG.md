@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.1 (2023-02-05)
+
+
 ## v1.0.0 (2023-01-29)
 ### Feature
 * New changes ([`5b4922e`](https://github.com/UBC-MDS/fxtracker/commit/5b4922e134a460db2917db7c1438218ffd44c90d))
