@@ -17,7 +17,7 @@ There is a python package ([`forex-python`](https://pypi.org/project/forex-pytho
 
 ## Installation
 
-``` bash
+```bash
 $ pip install fxtracker
 ```
 
@@ -31,7 +31,7 @@ If the package is installed successfully, users then need the following nine inp
 
 The functions can be imported from the package as follows:
 
-``` python
+```python
 from fxtracker.fxtracker import fx_conversion
 from fxtracker.fxtracker import fx_rate_lookup
 from fxtracker.fxtracker import price_trend_viz
@@ -92,3 +92,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 ## Credits
 
 `fxtracker` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
+```python
+
+```
