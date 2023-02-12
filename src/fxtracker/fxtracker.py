@@ -25,8 +25,8 @@ def fx_rate_lookup(curr, target_px):
     Returns
     --------
     date: string
-        The closest date in YYYY-MM-DD on which the target
-        price falling between day high and day low.
+        The most recent date in YYYY-MM-DD on which the target
+        price happened. i.e. the target price was between day high and day low of that date.
 
     Examples
     --------

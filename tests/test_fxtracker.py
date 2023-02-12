@@ -13,24 +13,31 @@ import numpy as np
 
 def test_fx_rate_lookup():
 
+    # Curr type invalid
     with raises(TypeError):
         fx_rate_lookup(123, 456)
 
+    # Target price type invalid
     with raises(TypeError):
         fx_rate_lookup('JPYHKD', "456")
 
+    # Curr not found
     with pytest.raises(Exception):
         fx_rate_lookup('AAABBB', 0.09)
 
+    # Target price not found
     with pytest.raises(Exception):
         fx_rate_lookup('JPYHKD', 1)
 
+    # No input parameters
     with pytest.raises(Exception):
         fx_rate_lookup()
 
+    # No target price parameter
     with pytest.raises(Exception):
         fx_rate_lookup('JPYHKD')
 
+    # Return string format check
     assert isinstance(pd.to_datetime(fx_rate_lookup('JPYHKD', 0.09)),
                       datetime.datetime), (
         'Return string should be a valid YYYY-MM-DD format')
