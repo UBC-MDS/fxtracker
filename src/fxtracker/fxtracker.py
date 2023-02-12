@@ -11,9 +11,10 @@ alt.renderers.enable('mimetype')
 
 def fx_rate_lookup(curr, target_px):
     """
-    Return the first date (reverse chronological order) on which
-    the target price falling between day high and
-    day low based on the availability of data.
+    Return the most recent date on which
+    the target price happend.
+    i.e. the target price was between day high
+    and day low of the day.
 
     Parameters
     ----------
@@ -26,7 +27,8 @@ def fx_rate_lookup(curr, target_px):
     --------
     date: string
         The most recent date in YYYY-MM-DD on which the target
-        price happened. i.e. the target price was between day high and day low of that day.
+        price happened. i.e. the target price was between day high
+        and day low of that day.
 
     Examples
     --------
