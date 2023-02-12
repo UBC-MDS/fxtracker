@@ -8,10 +8,10 @@ editor_options:
 
 ## Contributors
 
--   Sarah Abdelazim
--   Markus Nam
--   Crystal Geng
--   Lennon Au-Yeung
+-   Sarah Abdelazim (@missarah96)
+-   Lennon Au-Yeung (@lennonay)
+-   Crystal Geng (@THF-d8)
+-   Markus Nam (@markusnam)
 
 ## About
 
