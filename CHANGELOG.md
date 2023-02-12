@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.3 (2023-02-12)
+### Documentation
+* Update CONTRIBUTING.md ([`d0b6152`](https://github.com/UBC-MDS/fxtracker/commit/d0b615264919e327f872b6226de162a9bbf0205c))
+
 ## v1.0.2 (2023-02-12)
 ### Documentation
 * Update comments of fx_rate_lookup() ([`4e0dd32`](https://github.com/UBC-MDS/fxtracker/commit/4e0dd32f936d606c31f812b0a341befea9dd0839))
