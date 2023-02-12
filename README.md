@@ -9,7 +9,7 @@ The full documentation of this package can also be found on <https://fxtracker.r
 ## Function Description
 
 -   `fx_conversion` <br> Convert the input amount of currency 1 to currency 2 based on the latest available exchange rate.
--   `fx_rate_lookup` <br> Lookup for the date of the first occurence (in reverse chronological order) on which the input target rate of a currency pair is within the day's high/low.
+-   `fx_rate_lookup` <br> Lookup for the most recent date on which the input target rate of a currency pair is within the day's high/low.
 -   `price_trend_viz` <br> Plot the historical exchange rate of the input currency pair for a specific period of time.
 -   `pl_trend_viz` <br> Plot the historical profit/loss percentage of the input currency pair for a specific period of time.
 
@@ -27,7 +27,7 @@ If the package is installed successfully, users then need the following nine inp
 
 `curr`, `target_px`, `start_date`, `end_date`, `chart_type`, `option`, `curr1`, `curr2`, `amt`. The output of the functions will be in forms of a datetime string, a float and interactive plots from the "altair" package.
 
-`fxtracker` can be used to convert a specific amount of money from one currency to another, find the the first date on which the target price falling between day high and day low, visualize the trend of the exchange rate of a currency pair and the trend of the profit and loss of a currency pair between the selected start date and end date.
+`fxtracker` can be used to convert a specific amount of money from one currency to another, find the most recent date on which the target price falling between day high and day low of that day, visualize the trend of the exchange rate of a currency pair and the trend of the profit and loss of a currency pair between the selected start date and end date.
 
 The functions can be imported from the package as follows:
 
@@ -44,7 +44,7 @@ from fxtracker.fxtracker import pl_trend_viz
 
 163.68
 
-### To look up the first date (reverse chronological order) on which the target price falling between day high and day low based on the availability of data:
+### To look up the most recent date on which the target price falling between day high and day low of that day:
 
     fx_rate_lookup('EURUSD', 1.072)
 
