@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.2 (2023-02-12)
+### Documentation
+* Update comments of fx_rate_lookup() ([`4e0dd32`](https://github.com/UBC-MDS/fxtracker/commit/4e0dd32f936d606c31f812b0a341befea9dd0839))
+* Add links to github accounts in CONTRIBUTING.md ([`95d0e8f`](https://github.com/UBC-MDS/fxtracker/commit/95d0e8fa1ad7b501140a026aa07104f2a3107f52))
+* Fix a typo in a comment of fx_rate_lookup ([`fd69f46`](https://github.com/UBC-MDS/fxtracker/commit/fd69f4650964a40ca8dcb9e19a7d63fa6b24e710))
+* Update README ([`d81ab26`](https://github.com/UBC-MDS/fxtracker/commit/d81ab266b06ee9c674944a873ac046b2c13a1ee0))
+* Update fx_rate_lookup comments ([`47ea868`](https://github.com/UBC-MDS/fxtracker/commit/47ea86800bcc2d78b7d3507cebb84661e0d234db))
+
 ## v1.0.1 (2023-02-05)
 
 
