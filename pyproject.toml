@@ -1,26 +1,51 @@
 [tool.poetry]
 name = "fxtracker"
-version = "0.1.0"
-description = "A package that plots priccurrent and historical price graphshs for currency pairs as well as converts currency."
+version = "1.0.1"
+description = "A package that plots current and historical price graphs for currency pairs as well as converts currency."
 authors = ["Sarah Abdelazim, Markus Nam, Crystal Geng, Lennon Au-Yeung"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/UBC-MDS/fxtracker"
+repository = "https://github.com/UBC-MDS/fxtracker"
+documentation = 'https://fxtracker.readthedocs.io'
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pandas = "^1.5.2"
+altair = "^4.2.0"
+numpy = "^1.24.1"
+plotly = "^5.12.0"
+yfinance = "^0.2.3"
+ipykernel = "^6.20.2"
+altair-viewer = "^0.4.0"
+python-semantic-release = "^7.33.0"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
+myst-nb = {version = "^0.17.1", python = "^3.9"}
+sphinx-autoapi = "^2.0.1"
+sphinx-rtd-theme = "^1.1.1"
+jupyter = "^1.0.0"
+flake8 = "^6.0.0"
+sphinxcontrib-napoleon = "^0.7"
+sphinx = "5.0.0"
+
 [tool.semantic_release]
-version_variable = "pyproject.toml:version" # version location
-branch = "main"                             # branch to make releases of
-changelog_file = "CHANGELOG.md"             # changelog file
-build_command = "poetry build"              # build dists
-dist_path = "dist/"                         # where to put dists
-upload_to_release = true                    # auto-create GitHub release
-upload_to_pypi = false                      # don't auto-upload to PyPI
-remove_dist = false                         # don't remove dists
-patch_without_tag = true                    # patch release by default
+version_variable = "pyproject.toml:version"             # version location
+version_source = "commit"                               # version source
+branch = "main"                                         # branch to make releases of
+changelog_file = "CHANGELOG.md"                         # changelog file
+build_command = "poetry build"                          # build dists
+dist_path = "dist/"                                     # where to put dists
+upload_to_release = true                                # auto-create GitHub release
+upload_to_pypi = false                                  # don't auto-upload to PyPI
+remove_dist = false                                     # don't remove dists
+patch_without_tag = true                                # patch release by default
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+

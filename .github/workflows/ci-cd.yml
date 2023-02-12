@@ -1,6 +1,12 @@
 name: ci-cd
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   ci:
@@ -30,9 +36,21 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           files: ./coverage.xml   # coverage report
+        
+      - name: Upload coverage to Codecov  
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
 
       - name: Build documentation
         run: poetry run make html --directory docs/
+      
+      - name: Check style
+        run: poetry run flake8 --exclude=docs*
 
   cd:
     # Only run this job if the "ci" job passes
@@ -61,7 +79,7 @@ jobs:
 
       - name: Install package
         run: poetry install
-
+      
       - name: Use Python Semantic Release to prepare release
         env:
           # This token is created automatically by GH Actions
